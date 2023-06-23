@@ -5,6 +5,14 @@ const UncontrolledInputs = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    // console.log(formData);
+    // const email = formData.get('email');
+    // console.log([...formData.entries()]);
+    const newUser = Object.fromEntries(formData);
+    console.log(newUser);
+    setValue(value + 1);
+    e.currentTarget.reset();
   };
   return (
     <div>
@@ -15,26 +23,21 @@ const UncontrolledInputs = () => {
           <label htmlFor='name' className='form-label'>
             name
           </label>
-          <input type='text' className='form-input' id='name' name='name' />
+          <input type='text' className='form-input' id='name' name='name' autoComplete='true' />
         </div>
         {/* email */}
         <div className='form-row'>
           <label htmlFor='email' className='form-label'>
             Email
           </label>
-          <input type='email' className='form-input' id='email' name='email' />
+          <input type='email' className='form-input' id='email' name='email' autoComplete='true' />
         </div>
         {/* email */}
         <div className='form-row'>
           <label htmlFor='password' className='form-label'>
             Password
           </label>
-          <input
-            type='password'
-            className='form-input'
-            id='password'
-            name='password'
-          />
+          <input type='password' className='form-input' id='password' name='password' autoComplete='true' />
         </div>
 
         <button type='submit' className='btn btn-block'>
